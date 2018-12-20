@@ -1,0 +1,105 @@
+import java.util.Scanner;
+
+public class FromAtoB {
+
+    public static void rec(int a, int b, int k) {
+        System.out.print(a + " ");
+        if(a != b)
+            rec(a + k, b, k);
+    }
+
+    public static void main(String[] args) {
+        System.out.print("Enter: ");
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt();
+        int b = scan.nextInt();
+        if(a > b)
+            rec(a, b, -1);
+        else
+            rec(a, b, 1);
+    }
+}
+
+
+public class IsSimple {
+
+    public static boolean rec(int n, int k) {
+        if(n%k != 0 || k < n/2)
+            return (n%k == 0) | rec(n, k+1);
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int n = 20;
+        System.out.println(!rec(n, 2));
+    }
+}
+
+public class NumSum {
+
+    public static int rec(int n) {
+        if(n == 0)
+            return 0;
+        return n%10 + rec(n/10);
+    }
+
+    public static void main(String[] args) {
+        int n = 237;
+        System.out.println(rec(n));
+    }
+}
+
+public class PresetOfNumbersSum {
+
+    public static void rec(int k, int s, int n) {
+        int sum = 0;
+        int temp = n;
+        for (int i = 0; i < k; i++) {
+            sum += temp%10;
+            temp /= 10;
+        }
+        if(sum == s)
+            System.out.print(n + " ");
+        if(n < k*10 - 1)
+            rec(k, s, n+1);
+    }
+
+    public static void main(String[] args) {
+        int k = 3;
+        int s = 10;
+
+        rec(k, s, 10*(k-1));
+    }
+}
+
+
+public class Sequence {
+
+    public static void rec(int n, int k) {
+        System.out.print(k + " ");
+        if(n > k)
+            rec(n, k+1);
+    }
+
+    public static void main(String[] args) {
+        rec(10, 1);
+    }
+}
+
+public class TriangularSequence {
+
+    public static void rec(int n, int k) {
+        for (int i = 0; i < k; i++) {
+            System.out.print(k + " ");
+        }
+        System.out.println();
+        if(n > k)
+            rec(n, k+1);
+    }
+
+    public static void main(String[] args) {
+        rec(10, 1);
+    }
+}
+
+
